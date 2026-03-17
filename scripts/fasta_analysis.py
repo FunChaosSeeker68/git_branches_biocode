@@ -8,10 +8,11 @@ def read_fasta(filename):
 
 sequence = read_fasta("data/sequence.fasta")
 print(sequence)
-AT=0
-sqw_num=len(sequence)
-for letter in sequence:
-    if letter == "A" or letter == "T":
-        AT=AT+1
-AT_PRECENT=(AT/sqw_num)*100
-print (AT_PRECENT)
+
+def gc_content(seq):
+    g = seq.count("G")
+    c = seq.count("C")
+    gc = (g + c) / len(seq) * 100
+    return gc
+
+print("GC content:", gc_content(sequence))
